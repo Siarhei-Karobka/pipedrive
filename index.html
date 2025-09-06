@@ -29,9 +29,9 @@
     <script src="script.js"></script>
     <script>
       (async function () {
-        const sdk = await new AppExtensionsSDK({
-          identifier: "123abc",
-        }).initialize({ size: { height: 500 } });
+        const sdk = await new AppExtensionsSDK().initialize({
+          size: { height: 500 },
+        });
       })();
     </script>
   </body>
