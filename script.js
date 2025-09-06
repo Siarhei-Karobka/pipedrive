@@ -23,7 +23,16 @@ document
       );
 
       if (response.ok) {
-        alert("Success!");
+        console.log(response);
+
+        await sdk.execute(Command.SHOW_SNACKBAR, {
+          message: "Action completed",
+          link: {
+            url: "https://pipedrive-sandbox2.pipedrive.com/deal/8",
+            label: "View",
+          },
+        });
+
         document.getElementById("myForm").reset();
       } else {
         alert("Failure: " + response.status);
