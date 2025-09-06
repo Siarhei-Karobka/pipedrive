@@ -8,15 +8,30 @@
   </head>
   <body>
     <form id="myForm">
-      <label for="title">TitleX:</label>
-      <input type="text" id="title" name="title" required />
+      <label for="title">Client details:</label>
+      <input
+        type="text"
+        id="title"
+        name="clientName"
+        placeholder="Client Name"
+        required
+      />
+      <input
+        type="number"
+        id="value"
+        name="dealValue"
+        placeholder="Deal Value"
+        required
+      />
       <button type="submit">Submit</button>
     </form>
 
     <script src="script.js"></script>
     <script>
       (async function () {
-        const sdk = await new AppExtensionsSDK().initialize();
+        const sdk = await new AppExtensionsSDK({
+          identifier: "123abc",
+        }).initialize({ size: { height: 500 } });
       })();
     </script>
   </body>

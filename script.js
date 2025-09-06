@@ -3,7 +3,8 @@ document
   .addEventListener("submit", async function (event) {
     event.preventDefault();
 
-    const title = document.getElementById("title").value;
+    const clientName = document.getElementById("title").value;
+    const dealValue = document.getElementById("value").value;
     const apiToken = "1aee7a110b2fc4a5fef4f9304b2eec83c0c12a4f";
 
     try {
@@ -14,16 +15,20 @@ document
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({ title }),
+          body: JSON.stringify({
+            title: clientName,
+            value: dealValue,
+          }),
         }
       );
 
       if (response.ok) {
-        alert("Успешно отправлено!");
+        alert("Success!");
+        document.getElementById("myForm").reset();
       } else {
-        alert("Ошибка: " + response.status);
+        alert("Failure: " + response.status);
       }
     } catch (error) {
-      alert("Произошла ошибка: " + error.message);
+      alert("Failure: " + error.message);
     }
   });
