@@ -1,3 +1,11 @@
+import AppExtensionsSDK from "@pipedrive/app-extensions-sdk";
+
+const sdk = new AppExtensionsSDK();
+
+await sdk.initialize();
+
+document.documentElement.setAttribute("data-theme", sdk.userSettings.theme);
+
 document
   .getElementById("myForm")
   .addEventListener("submit", async function (event) {
