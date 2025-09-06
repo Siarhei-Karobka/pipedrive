@@ -27,5 +27,12 @@
     </form>
 
     <script src="script.js"></script>
+    <script>
+      (async function () {
+        const sdk = await new AppExtensionsSDK().initialize({
+          size: { height: 500 },
+        });
+      })();
+    </script>
   </body>
 </html>

@@ -1,11 +1,3 @@
-import AppExtensionsSDK from "@pipedrive/app-extensions-sdk";
-
-const sdk = new AppExtensionsSDK();
-
-await sdk.initialize();
-
-document.documentElement.setAttribute("data-theme", sdk.userSettings.theme);
-
 document
   .getElementById("myForm")
   .addEventListener("submit", async function (event) {
@@ -31,16 +23,7 @@ document
       );
 
       if (response.ok) {
-        console.log(response);
-
-        await sdk.execute(Command.SHOW_SNACKBAR, {
-          message: "Action completed",
-          link: {
-            url: "https://pipedrive-sandbox2.pipedrive.com/deal/8",
-            label: "View",
-          },
-        });
-
+        alert("Success!");
         document.getElementById("myForm").reset();
       } else {
         alert("Failure: " + response.status);
